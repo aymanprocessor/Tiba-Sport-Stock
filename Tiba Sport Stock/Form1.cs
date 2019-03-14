@@ -16,5 +16,17 @@ namespace Tiba_Sport_Stock
         {
             InitializeComponent();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            aid_items aid_Items = new aid_items();
+            aid_Items.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Items items = new Items();
+            items.Show();
+        }
     }
 }
