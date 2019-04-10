@@ -161,6 +161,7 @@
             this.major_tbName.Name = "major_tbName";
             this.major_tbName.Size = new System.Drawing.Size(252, 26);
             this.major_tbName.TabIndex = 11;
+            this.major_tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.major_tbName_KeyDown);
             // 
             // label1
             // 
@@ -200,6 +201,7 @@
             this.major_dgView.Size = new System.Drawing.Size(811, 578);
             this.major_dgView.TabIndex = 9;
             this.major_dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.major_dgView_CellClick);
+            this.major_dgView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.major_dgView_KeyDown);
             // 
             // major_btnAdd
             // 
@@ -250,6 +252,7 @@
             this.mark_tbName.Name = "mark_tbName";
             this.mark_tbName.Size = new System.Drawing.Size(252, 26);
             this.mark_tbName.TabIndex = 11;
+            this.mark_tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mark_tbName_KeyDown);
             // 
             // label2
             // 

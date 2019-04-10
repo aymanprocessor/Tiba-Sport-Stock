@@ -51,6 +51,10 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.dgView = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbReorder = new System.Windows.Forms.TextBox();
+            this.blbCode = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +79,8 @@
             this.cbMajor.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbMajor.Name = "cbMajor";
             this.cbMajor.Size = new System.Drawing.Size(199, 27);
-            this.cbMajor.TabIndex = 1;
+            this.cbMajor.TabIndex = 0;
+            this.cbMajor.SelectedIndexChanged += new System.EventHandler(this.cbMajor_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -98,6 +103,7 @@
             this.cbSub.Name = "cbSub";
             this.cbSub.Size = new System.Drawing.Size(199, 27);
             this.cbSub.TabIndex = 1;
+            this.cbSub.SelectedIndexChanged += new System.EventHandler(this.cbSub_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -119,7 +125,8 @@
             this.cbSize.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbSize.Name = "cbSize";
             this.cbSize.Size = new System.Drawing.Size(199, 27);
-            this.cbSize.TabIndex = 1;
+            this.cbSize.TabIndex = 2;
+            this.cbSize.SelectedIndexChanged += new System.EventHandler(this.cbSize_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -141,7 +148,8 @@
             this.cbColor.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbColor.Name = "cbColor";
             this.cbColor.Size = new System.Drawing.Size(199, 27);
-            this.cbColor.TabIndex = 1;
+            this.cbColor.TabIndex = 3;
+            this.cbColor.SelectedIndexChanged += new System.EventHandler(this.cbColor_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -163,7 +171,7 @@
             this.cbStore.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbStore.Name = "cbStore";
             this.cbStore.Size = new System.Drawing.Size(199, 27);
-            this.cbStore.TabIndex = 1;
+            this.cbStore.TabIndex = 4;
             // 
             // label6
             // 
@@ -185,7 +193,7 @@
             this.cbUnit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbUnit.Name = "cbUnit";
             this.cbUnit.Size = new System.Drawing.Size(199, 27);
-            this.cbUnit.TabIndex = 1;
+            this.cbUnit.TabIndex = 5;
             // 
             // label7
             // 
@@ -207,12 +215,12 @@
             this.cbLocation.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbLocation.Name = "cbLocation";
             this.cbLocation.Size = new System.Drawing.Size(199, 27);
-            this.cbLocation.TabIndex = 1;
+            this.cbLocation.TabIndex = 6;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(611, 17);
+            this.label9.Location = new System.Drawing.Point(611, 14);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label9.Size = new System.Drawing.Size(58, 19);
@@ -221,18 +229,17 @@
             // 
             // lblDesc
             // 
-            this.lblDesc.Location = new System.Drawing.Point(247, 13);
+            this.lblDesc.Location = new System.Drawing.Point(247, 10);
             this.lblDesc.Name = "lblDesc";
             this.lblDesc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblDesc.Size = new System.Drawing.Size(358, 27);
             this.lblDesc.TabIndex = 4;
-            this.lblDesc.Text = "......";
             this.lblDesc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(178, 17);
+            this.label11.Location = new System.Drawing.Point(178, 14);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label11.Size = new System.Drawing.Size(63, 19);
@@ -241,12 +248,11 @@
             // 
             // lblAvg
             // 
-            this.lblAvg.Location = new System.Drawing.Point(65, 13);
+            this.lblAvg.Location = new System.Drawing.Point(65, 10);
             this.lblAvg.Name = "lblAvg";
             this.lblAvg.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblAvg.Size = new System.Drawing.Size(107, 27);
             this.lblAvg.TabIndex = 4;
-            this.lblAvg.Text = "000";
             this.lblAvg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel1
@@ -255,41 +261,44 @@
             this.panel1.BackColor = System.Drawing.Color.NavajoWhite;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.lblAvg);
+            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.blbCode);
             this.panel1.Controls.Add(this.lblDesc);
             this.panel1.Location = new System.Drawing.Point(12, 149);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(730, 56);
+            this.panel1.Size = new System.Drawing.Size(730, 76);
             this.panel1.TabIndex = 5;
             // 
             // btnAdd
             // 
             this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAdd.Location = new System.Drawing.Point(431, 211);
+            this.btnAdd.Location = new System.Drawing.Point(431, 231);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 35);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "اضافة";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnDelete.Location = new System.Drawing.Point(327, 211);
+            this.btnDelete.Location = new System.Drawing.Point(327, 231);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 35);
-            this.btnDelete.TabIndex = 7;
+            this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "مسح";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // btnEdit
             // 
             this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnEdit.Location = new System.Drawing.Point(223, 211);
+            this.btnEdit.Location = new System.Drawing.Point(223, 231);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(100, 35);
-            this.btnEdit.TabIndex = 8;
+            this.btnEdit.TabIndex = 9;
             this.btnEdit.Text = "تعديل";
             this.btnEdit.UseVisualStyleBackColor = true;
             // 
@@ -299,21 +308,61 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgView.Location = new System.Drawing.Point(10, 252);
+            this.dgView.Location = new System.Drawing.Point(10, 272);
             this.dgView.Name = "dgView";
-            this.dgView.Size = new System.Drawing.Size(732, 361);
+            this.dgView.Size = new System.Drawing.Size(732, 341);
             this.dgView.TabIndex = 9;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(253, 114);
+            this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label8.Size = new System.Drawing.Size(66, 19);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "حد الطلب :";
+            // 
+            // tbReorder
+            // 
+            this.tbReorder.Location = new System.Drawing.Point(44, 110);
+            this.tbReorder.Name = "tbReorder";
+            this.tbReorder.Size = new System.Drawing.Size(199, 26);
+            this.tbReorder.TabIndex = 10;
+            // 
+            // blbCode
+            // 
+            this.blbCode.Location = new System.Drawing.Point(247, 37);
+            this.blbCode.Name = "blbCode";
+            this.blbCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.blbCode.Size = new System.Drawing.Size(358, 27);
+            this.blbCode.TabIndex = 4;
+            this.blbCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(611, 41);
+            this.label12.Name = "label12";
+            this.label12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label12.Size = new System.Drawing.Size(45, 19);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "الكود :";
             // 
             // Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 625);
+            this.Controls.Add(this.tbReorder);
             this.Controls.Add(this.dgView);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.cbLocation);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cbUnit);
@@ -368,5 +417,9 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.DataGridView dgView;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbReorder;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label blbCode;
     }
 }

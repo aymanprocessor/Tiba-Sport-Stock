@@ -13,6 +13,7 @@ namespace Tiba_Sport_Stock
 {
     public partial class aid_items : Form
     {
+
         private MySqlConnection connection;
         private string server, database, user, pass;
 
@@ -47,9 +48,30 @@ namespace Tiba_Sport_Stock
             loadUnit();
             loadLocation();
             clear();
+
+            //string max_query = "select max(id) from major_gp;";
+            //connection.Open();
+            //MySqlCommand cmd1 = new MySqlCommand(max_query, connection);
+
+            //var max = cmd1.ExecuteScalar();
+            //if(max.ToString() == "") {
+            //    string set_autoincrement = "ALTER TABLE major_gp AUTO_INCREMENT = 1; ";
+            //    MySqlCommand cmd = new MySqlCommand(set_autoincrement, connection);
+            //    cmd.ExecuteNonQuery();
+            //}
+            //else
+            //{
+            //    string set_autoincrement = "ALTER TABLE major_gp AUTO_INCREMENT = ?; ";
+            //    MySqlCommand cmd = new MySqlCommand(set_autoincrement, connection);
+            //    var max_string = (int)(max) + 1 ;
+            //    cmd.Parameters.AddWithValue("param1", max_string);
+            //    cmd.ExecuteNonQuery();
+
+            //}
+            //connection.Close();
         }
 
-       
+
 
         /////////////////////////////////////////////////////
         // Add Buttons
@@ -58,13 +80,9 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "INSERT INTO major_gp ( name ) VALUES ( ? );";
+
                 connection.Open();
-
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("param1", major_tbName.Text);
-
-                cmd.ExecuteNonQuery();
+                insert("major_gp", major_tbName);
                 connection.Close();
                 clear();
                 loadMajor();
@@ -83,13 +101,8 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "INSERT INTO mark ( name ) VALUES ( ? );";
                 connection.Open();
-
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("param1", mark_tbName.Text);
-
-                cmd.ExecuteNonQuery();
+                insert("mark", mark_tbName);
                 connection.Close();
                 clear();
                 loadMark();
@@ -107,13 +120,9 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "INSERT INTO type ( name ) VALUES ( ? );";
+
                 connection.Open();
-
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("param1", type_tbName.Text);
-
-                cmd.ExecuteNonQuery();
+                insert("type", type_tbName);
                 connection.Close();
                 clear();
                 loadType();
@@ -130,13 +139,9 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "INSERT INTO size ( name ) VALUES ( ? );";
+
                 connection.Open();
-
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("param1", size_tbName.Text);
-
-                cmd.ExecuteNonQuery();
+                insert("size", size_tbName);
                 connection.Close();
                 clear();
                 loadSize();
@@ -153,13 +158,9 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "INSERT INTO color ( name ) VALUES ( ? );";
+
                 connection.Open();
-
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("param1", color_tbName.Text);
-
-                cmd.ExecuteNonQuery();
+                insert("color", color_tbName);
                 connection.Close();
                 clear();
                 loadColor();
@@ -176,13 +177,9 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "INSERT INTO trans_type ( name ) VALUES ( ? );";
+
                 connection.Open();
-
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("param1", trans_tbName.Text);
-
-                cmd.ExecuteNonQuery();
+                insert("trans_type", trans_tbName);
                 connection.Close();
                 clear();
                 loadTrans();
@@ -199,13 +196,9 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "INSERT INTO store ( name ) VALUES ( ? );";
+
                 connection.Open();
-
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("param1", store_tbName.Text);
-
-                cmd.ExecuteNonQuery();
+                insert("store", store_tbName);
                 connection.Close();
                 clear();
                 loadStore();
@@ -223,13 +216,9 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "INSERT INTO unit ( name ) VALUES ( ? );";
+
                 connection.Open();
-
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("param1", unit_tbName.Text);
-
-                cmd.ExecuteNonQuery();
+                insert("unit", unit_tbName);
                 connection.Close();
                 clear();
                 loadUnit();
@@ -246,13 +235,9 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "INSERT INTO location ( name ) VALUES ( ? );";
+
                 connection.Open();
-
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("param1", location_tbName.Text);
-
-                cmd.ExecuteNonQuery();
+                insert("location", location_tbName);
                 connection.Close();
                 clear();
                 loadLocation();
@@ -275,21 +260,12 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                var selectedRows = major_dgView.SelectedRows
-              .OfType<DataGridViewRow>()
-              .Where(r => !r.IsNewRow)
-              .ToArray();
                 connection.Open();
-                foreach (var i in selectedRows)
-                {
 
-                    string query = "DELETE FROM major_gp WHERE id = " + i.Cells[0].Value;
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-
-                }
-
+                delete("major_gp", major_dgView);
+                set_autoincrement("id", "major_gp");
                 connection.Close();
+                clear();
                 loadMajor();
             }
             catch (MySqlException ex)
@@ -304,21 +280,12 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                var selectedRows = mark_dgView.SelectedRows
-              .OfType<DataGridViewRow>()
-              .Where(r => !r.IsNewRow)
-              .ToArray();
+
                 connection.Open();
-                foreach (var i in selectedRows)
-                {
-
-                    string query = "DELETE FROM mark WHERE id = " + i.Cells[0].Value;
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-
-                }
-
+                delete("mark", major_dgView);
+                set_autoincrement("id", "mark");
                 connection.Close();
+                clear();
                 loadMark();
             }
             catch (MySqlException ex)
@@ -333,21 +300,12 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                var selectedRows = type_dgView.SelectedRows
-              .OfType<DataGridViewRow>()
-              .Where(r => !r.IsNewRow)
-              .ToArray();
+
                 connection.Open();
-                foreach (var i in selectedRows)
-                {
-
-                    string query = "DELETE FROM type WHERE id = " + i.Cells[0].Value;
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-
-                }
-
+                delete("type", major_dgView);
+                set_autoincrement("id", "type");
                 connection.Close();
+                clear();
                 loadType();
             }
             catch (MySqlException ex)
@@ -361,21 +319,12 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                var selectedRows = size_dgView.SelectedRows
-              .OfType<DataGridViewRow>()
-              .Where(r => !r.IsNewRow)
-              .ToArray();
+
                 connection.Open();
-                foreach (var i in selectedRows)
-                {
-
-                    string query = "DELETE FROM size WHERE id = " + i.Cells[0].Value;
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-
-                }
-
+                delete("size", major_dgView);
+                set_autoincrement("id", "size");
                 connection.Close();
+                clear();
                 loadSize();
             }
             catch (MySqlException ex)
@@ -389,21 +338,12 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                var selectedRows = color_dgView.SelectedRows
-              .OfType<DataGridViewRow>()
-              .Where(r => !r.IsNewRow)
-              .ToArray();
+
                 connection.Open();
-                foreach (var i in selectedRows)
-                {
-
-                    string query = "DELETE FROM color WHERE id = " + i.Cells[0].Value;
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-
-                }
-
+                delete("color", major_dgView);
+                set_autoincrement("id", "color");
                 connection.Close();
+                clear();
                 loadColor();
             }
             catch (MySqlException ex)
@@ -417,23 +357,14 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                var selectedRows = trans_dgView.SelectedRows
-              .OfType<DataGridViewRow>()
-              .Where(r => !r.IsNewRow)
-              .ToArray();
                 connection.Open();
-                foreach (var i in selectedRows)
-                {
-
-                    string query = "DELETE FROM trans_type WHERE id = " + i.Cells[0].Value;
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-
-                }
-
+                delete("trans_type", major_dgView);
+                set_autoincrement("id", "trans_type");
                 connection.Close();
+                clear();
                 loadTrans();
             }
+
             catch (MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
@@ -446,21 +377,12 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                var selectedRows = store_dgView.SelectedRows
-              .OfType<DataGridViewRow>()
-              .Where(r => !r.IsNewRow)
-              .ToArray();
+
                 connection.Open();
-                foreach (var i in selectedRows)
-                {
-
-                    string query = "DELETE FROM  store WHERE id = " + i.Cells[0].Value;
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-
-                }
-
+                delete("store", major_dgView);
+                set_autoincrement("id", "store");
                 connection.Close();
+                clear();
                 loadStore();
             }
             catch (MySqlException ex)
@@ -474,21 +396,12 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                var selectedRows = unit_dgView.SelectedRows
-              .OfType<DataGridViewRow>()
-              .Where(r => !r.IsNewRow)
-              .ToArray();
+
                 connection.Open();
-                foreach (var i in selectedRows)
-                {
-
-                    string query = "DELETE FROM unit WHERE id = " + i.Cells[0].Value;
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-
-                }
-
+                delete("unit", major_dgView);
+                set_autoincrement("id", "unit");
                 connection.Close();
+                clear();
                 loadUnit();
             }
             catch (MySqlException ex)
@@ -502,21 +415,12 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                var selectedRows = location_dgView.SelectedRows
-              .OfType<DataGridViewRow>()
-              .Where(r => !r.IsNewRow)
-              .ToArray();
+
                 connection.Open();
-                foreach (var i in selectedRows)
-                {
-
-                    string query = "DELETE FROM location WHERE id = " + i.Cells[0].Value;
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-
-                }
-
+                delete("location", major_dgView);
+                set_autoincrement("id", "location");
                 connection.Close();
+                clear();
                 loadLocation();
             }
             catch (MySqlException ex)
@@ -562,12 +466,12 @@ namespace Tiba_Sport_Stock
             }
         }
 
-       
+
         private void mark_btnEdit_Click(object sender, EventArgs e)
         {
             try
             {
-                var selectedRows =mark_dgView.SelectedRows
+                var selectedRows = mark_dgView.SelectedRows
             .OfType<DataGridViewRow>()
             .Where(r => !r.IsNewRow)
             .ToArray();
@@ -860,6 +764,170 @@ namespace Tiba_Sport_Stock
         }
 
 
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Text Box Key Down
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        private void major_tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+          
+            if (e.KeyData == Keys.Enter)
+            {
+                major_btnAdd.PerformClick();
+            }
+        }
+
+        private void mark_tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                major_btnAdd.PerformClick();
+            }
+        }
+
+        private void type_tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                major_btnAdd.PerformClick();
+            }
+        }
+
+        private void size_tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                major_btnAdd.PerformClick();
+            }
+        }
+
+        private void color_tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                major_btnAdd.PerformClick();
+            }
+        }
+
+        private void trans_tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                major_btnAdd.PerformClick();
+            }
+        }
+
+        private void store_tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                major_btnAdd.PerformClick();
+            }
+        }
+
+        private void unit_tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                major_btnAdd.PerformClick();
+            }
+        }
+
+        private void location_tbName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                major_btnAdd.PerformClick();
+            }
+        }
+
+
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
+        // DataGrid Key Down
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        private void major_dgView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                major_btnDelete.PerformClick();
+            }
+        }
+
+        private void mark_dgView_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Delete)
+            {
+                mark_btnDelete.PerformClick();
+            }
+        }
+
+        private void type_dgView_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Delete)
+            {
+                type_btnDelete.PerformClick();
+            }
+        }
+
+        private void size_dgView_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Delete)
+            {
+                size_btnDelete.PerformClick();
+            }
+        }
+
+        private void color_tdgView_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Delete)
+            {
+                color_btnDelete.PerformClick();
+            }
+        }
+
+        private void trans_dgView_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Delete)
+            {
+                trans_btnDelete.PerformClick();
+            }
+        }
+
+        private void store_dgView_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Delete)
+            {
+                store_btnDelete.PerformClick();
+            }
+        }
+
+        private void unit_dgView_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Delete)
+            {
+                unit_btnDelete.PerformClick();
+            }
+        }
+
+        private void location_dgView_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyData == Keys.Delete)
+            {
+                location_btnDelete.PerformClick();
+            }
+        }
+
+
         /////////////////////////////////////////////////////
         // Load Data
         ///////////////////////////////////////////////////
@@ -934,7 +1002,7 @@ namespace Tiba_Sport_Stock
             }
         }
 
-       
+
 
         private void loadSize()
         {
@@ -959,7 +1027,7 @@ namespace Tiba_Sport_Stock
             }
         }
 
-       
+
         private void loadColor()
         {
             try
@@ -1031,7 +1099,7 @@ namespace Tiba_Sport_Stock
             }
         }
 
-       
+
         private void loadUnit()
         {
             try
@@ -1055,6 +1123,7 @@ namespace Tiba_Sport_Stock
             }
         }
 
+       
         private void loadLocation()
         {
             try
@@ -1092,6 +1161,64 @@ namespace Tiba_Sport_Stock
             location_tbName.Text = "";
         }
 
+       
+
+        private void set_autoincrement(string id, string table)
+        {
+
+            string max_query = String.Format("select max({0}) from {1} ;", id, table);
+            MySqlCommand cmd2 = new MySqlCommand(max_query, connection);
+
+            var max = cmd2.ExecuteScalar();
+
+            if (max.ToString() == "")
+            {
+                string set_autoincrement = String.Format("ALTER TABLE {0} AUTO_INCREMENT = 1; ", table);
+                MySqlCommand cmd1 = new MySqlCommand(set_autoincrement, connection);
+
+                cmd1.ExecuteNonQuery();
+            }
+            else
+            {
+                var max_string = (int)(max) + 1;
+                string set_autoincrement = String.Format("ALTER TABLE {0} AUTO_INCREMENT = {1};", table, max_string);
+                MySqlCommand cmd1 = new MySqlCommand(set_autoincrement, connection);
+
+                cmd1.ExecuteNonQuery();
+            }
+        }
+
+        private void delete(string table_name, DataGridView dg)
+        {
+           DialogResult d = MessageBox.Show( "هل تريد المسح", "تأكيد المسح", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (d == DialogResult.Yes)
+            {
+                var selectedRows = dg.SelectedRows
+            .OfType<DataGridViewRow>()
+            .Where(r => !r.IsNewRow)
+            .ToArray();
+                foreach (var i in selectedRows)
+                {
+                    string query = string.Format("DELETE FROM {0} WHERE id = {1}", table_name, i.Cells[0].Value);
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+        }
+
+        private void insert(string table_name, TextBox tb)
+        {
+            string query = string.Format("INSERT INTO {0} ( name ) VALUES ( ? );", table_name);
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("param1", tb.Text);
+            cmd.ExecuteNonQuery();
+        }
+
+
+
 
     }
 }
+
+
