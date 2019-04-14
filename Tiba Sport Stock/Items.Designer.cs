@@ -47,14 +47,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lblAvg = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblCode = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.dgView = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.tbReorder = new System.Windows.Forms.TextBox();
-            this.blbCode = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(590, 9);
+            this.label1.Location = new System.Drawing.Point(590, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -75,7 +75,7 @@
             // 
             this.cbMajor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbMajor.FormattingEnabled = true;
-            this.cbMajor.Location = new System.Drawing.Point(381, 6);
+            this.cbMajor.Location = new System.Drawing.Point(381, 34);
             this.cbMajor.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbMajor.Name = "cbMajor";
             this.cbMajor.Size = new System.Drawing.Size(199, 27);
@@ -86,7 +86,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(590, 44);
+            this.label2.Location = new System.Drawing.Point(590, 72);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -98,7 +98,7 @@
             // 
             this.cbSub.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbSub.FormattingEnabled = true;
-            this.cbSub.Location = new System.Drawing.Point(381, 41);
+            this.cbSub.Location = new System.Drawing.Point(381, 69);
             this.cbSub.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbSub.Name = "cbSub";
             this.cbSub.Size = new System.Drawing.Size(199, 27);
@@ -109,7 +109,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(590, 79);
+            this.label3.Location = new System.Drawing.Point(590, 107);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -121,7 +121,7 @@
             // 
             this.cbSize.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbSize.FormattingEnabled = true;
-            this.cbSize.Location = new System.Drawing.Point(381, 76);
+            this.cbSize.Location = new System.Drawing.Point(381, 104);
             this.cbSize.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbSize.Name = "cbSize";
             this.cbSize.Size = new System.Drawing.Size(199, 27);
@@ -132,7 +132,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(590, 114);
+            this.label4.Location = new System.Drawing.Point(590, 142);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -144,7 +144,7 @@
             // 
             this.cbColor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbColor.FormattingEnabled = true;
-            this.cbColor.Location = new System.Drawing.Point(381, 111);
+            this.cbColor.Location = new System.Drawing.Point(381, 139);
             this.cbColor.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbColor.Name = "cbColor";
             this.cbColor.Size = new System.Drawing.Size(199, 27);
@@ -155,7 +155,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(253, 9);
+            this.label5.Location = new System.Drawing.Point(253, 37);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -167,7 +167,7 @@
             // 
             this.cbStore.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbStore.FormattingEnabled = true;
-            this.cbStore.Location = new System.Drawing.Point(44, 6);
+            this.cbStore.Location = new System.Drawing.Point(44, 34);
             this.cbStore.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbStore.Name = "cbStore";
             this.cbStore.Size = new System.Drawing.Size(199, 27);
@@ -177,7 +177,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(253, 44);
+            this.label6.Location = new System.Drawing.Point(253, 72);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -189,7 +189,7 @@
             // 
             this.cbUnit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbUnit.FormattingEnabled = true;
-            this.cbUnit.Location = new System.Drawing.Point(44, 41);
+            this.cbUnit.Location = new System.Drawing.Point(44, 69);
             this.cbUnit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbUnit.Name = "cbUnit";
             this.cbUnit.Size = new System.Drawing.Size(199, 27);
@@ -199,7 +199,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(253, 79);
+            this.label7.Location = new System.Drawing.Point(253, 107);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -211,7 +211,7 @@
             // 
             this.cbLocation.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbLocation.FormattingEnabled = true;
-            this.cbLocation.Location = new System.Drawing.Point(44, 76);
+            this.cbLocation.Location = new System.Drawing.Point(44, 104);
             this.cbLocation.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cbLocation.Name = "cbLocation";
             this.cbLocation.Size = new System.Drawing.Size(199, 27);
@@ -264,82 +264,12 @@
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.blbCode);
+            this.panel1.Controls.Add(this.lblCode);
             this.panel1.Controls.Add(this.lblDesc);
-            this.panel1.Location = new System.Drawing.Point(12, 149);
+            this.panel1.Location = new System.Drawing.Point(12, 177);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(730, 76);
             this.panel1.TabIndex = 5;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAdd.Location = new System.Drawing.Point(431, 231);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 35);
-            this.btnAdd.TabIndex = 7;
-            this.btnAdd.Text = "اضافة";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnDelete.Location = new System.Drawing.Point(327, 231);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 35);
-            this.btnDelete.TabIndex = 8;
-            this.btnDelete.Text = "مسح";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnEdit.Location = new System.Drawing.Point(223, 231);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(100, 35);
-            this.btnEdit.TabIndex = 9;
-            this.btnEdit.Text = "تعديل";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            // 
-            // dgView
-            // 
-            this.dgView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgView.Location = new System.Drawing.Point(10, 272);
-            this.dgView.Name = "dgView";
-            this.dgView.Size = new System.Drawing.Size(732, 341);
-            this.dgView.TabIndex = 9;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(253, 114);
-            this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label8.Name = "label8";
-            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label8.Size = new System.Drawing.Size(66, 19);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "حد الطلب :";
-            // 
-            // tbReorder
-            // 
-            this.tbReorder.Location = new System.Drawing.Point(44, 110);
-            this.tbReorder.Name = "tbReorder";
-            this.tbReorder.Size = new System.Drawing.Size(199, 26);
-            this.tbReorder.TabIndex = 10;
-            // 
-            // blbCode
-            // 
-            this.blbCode.Location = new System.Drawing.Point(247, 37);
-            this.blbCode.Name = "blbCode";
-            this.blbCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.blbCode.Size = new System.Drawing.Size(358, 27);
-            this.blbCode.TabIndex = 4;
-            this.blbCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
             // 
@@ -350,6 +280,85 @@
             this.label12.Size = new System.Drawing.Size(45, 19);
             this.label12.TabIndex = 4;
             this.label12.Text = "الكود :";
+            // 
+            // lblCode
+            // 
+            this.lblCode.Location = new System.Drawing.Point(247, 37);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblCode.Size = new System.Drawing.Size(358, 27);
+            this.lblCode.TabIndex = 4;
+            this.lblCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAdd.Location = new System.Drawing.Point(431, 259);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(100, 35);
+            this.btnAdd.TabIndex = 7;
+            this.btnAdd.Text = "اضافة";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnDelete.Location = new System.Drawing.Point(327, 259);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(100, 35);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "مسح";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnEdit.Location = new System.Drawing.Point(223, 259);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(100, 35);
+            this.btnEdit.TabIndex = 9;
+            this.btnEdit.Text = "تعديل";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // dgView
+            // 
+            this.dgView.AllowUserToAddRows = false;
+            this.dgView.AllowUserToDeleteRows = false;
+            this.dgView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgView.Location = new System.Drawing.Point(10, 318);
+            this.dgView.Name = "dgView";
+            this.dgView.ReadOnly = true;
+            this.dgView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgView.Size = new System.Drawing.Size(732, 295);
+            this.dgView.TabIndex = 9;
+            this.dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellClick);
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(253, 142);
+            this.label8.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label8.Name = "label8";
+            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label8.Size = new System.Drawing.Size(66, 19);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "حد الطلب :";
+            // 
+            // tbReorder
+            // 
+            this.tbReorder.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbReorder.Location = new System.Drawing.Point(44, 138);
+            this.tbReorder.Name = "tbReorder";
+            this.tbReorder.Size = new System.Drawing.Size(199, 26);
+            this.tbReorder.TabIndex = 10;
             // 
             // Items
             // 
@@ -383,6 +392,7 @@
             this.Name = "Items";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Items";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Items_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -420,6 +430,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbReorder;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label blbCode;
+        private System.Windows.Forms.Label lblCode;
     }
 }

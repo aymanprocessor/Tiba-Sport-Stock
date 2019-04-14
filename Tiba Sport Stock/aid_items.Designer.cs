@@ -292,6 +292,7 @@
             this.mark_dgView.Size = new System.Drawing.Size(811, 578);
             this.mark_dgView.TabIndex = 9;
             this.mark_dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.mark_dgView_CellClick);
+            this.mark_dgView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.mark_dgView_KeyDown);
             // 
             // mark_btnAdd
             // 
@@ -342,6 +343,7 @@
             this.type_tbName.Name = "type_tbName";
             this.type_tbName.Size = new System.Drawing.Size(252, 26);
             this.type_tbName.TabIndex = 11;
+            this.type_tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.type_tbName_KeyDown);
             // 
             // label3
             // 
@@ -381,6 +383,7 @@
             this.type_dgView.Size = new System.Drawing.Size(811, 578);
             this.type_dgView.TabIndex = 9;
             this.type_dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.type_dgView_CellClick);
+            this.type_dgView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.type_dgView_KeyDown);
             // 
             // type_btnAdd
             // 
@@ -431,6 +434,7 @@
             this.size_tbName.Name = "size_tbName";
             this.size_tbName.Size = new System.Drawing.Size(252, 26);
             this.size_tbName.TabIndex = 11;
+            this.size_tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.size_tbName_KeyDown);
             // 
             // label4
             // 
@@ -470,6 +474,7 @@
             this.size_dgView.Size = new System.Drawing.Size(811, 578);
             this.size_dgView.TabIndex = 9;
             this.size_dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.size_dgView_CellClick);
+            this.size_dgView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.size_dgView_KeyDown);
             // 
             // size_btnAdd
             // 
@@ -520,6 +525,7 @@
             this.color_tbName.Name = "color_tbName";
             this.color_tbName.Size = new System.Drawing.Size(252, 26);
             this.color_tbName.TabIndex = 11;
+            this.color_tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.color_tbName_KeyDown);
             // 
             // label5
             // 
@@ -559,6 +565,7 @@
             this.color_dgView.Size = new System.Drawing.Size(811, 554);
             this.color_dgView.TabIndex = 9;
             this.color_dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.color_dgView_CellClick);
+            this.color_dgView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.color_tdgView_KeyDown);
             // 
             // color_btnAdd
             // 
@@ -609,6 +616,7 @@
             this.trans_tbName.Name = "trans_tbName";
             this.trans_tbName.Size = new System.Drawing.Size(252, 26);
             this.trans_tbName.TabIndex = 11;
+            this.trans_tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.trans_tbName_KeyDown);
             // 
             // label6
             // 
@@ -649,6 +657,7 @@
             this.trans_dgView.Size = new System.Drawing.Size(811, 578);
             this.trans_dgView.TabIndex = 9;
             this.trans_dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.trans_dgView_CellClick);
+            this.trans_dgView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.trans_dgView_KeyDown);
             // 
             // trans_btnAdd
             // 
@@ -699,6 +708,7 @@
             this.store_tbName.Name = "store_tbName";
             this.store_tbName.Size = new System.Drawing.Size(252, 26);
             this.store_tbName.TabIndex = 17;
+            this.store_tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.store_tbName_KeyDown);
             // 
             // label7
             // 
@@ -739,6 +749,7 @@
             this.store_dgView.Size = new System.Drawing.Size(811, 578);
             this.store_dgView.TabIndex = 15;
             this.store_dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.store_dgView_CellClick);
+            this.store_dgView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.store_dgView_KeyDown);
             // 
             // store_btnAdd
             // 
@@ -789,6 +800,7 @@
             this.unit_tbName.Name = "unit_tbName";
             this.unit_tbName.Size = new System.Drawing.Size(252, 26);
             this.unit_tbName.TabIndex = 17;
+            this.unit_tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.unit_tbName_KeyDown);
             // 
             // label8
             // 
@@ -828,6 +840,7 @@
             this.unit_dgView.Size = new System.Drawing.Size(811, 551);
             this.unit_dgView.TabIndex = 15;
             this.unit_dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.unit_dgView_CellClick);
+            this.unit_dgView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.unit_dgView_KeyDown);
             // 
             // unit_btnAdd
             // 
@@ -889,6 +902,7 @@
             this.location_tbName.Name = "location_tbName";
             this.location_tbName.Size = new System.Drawing.Size(252, 26);
             this.location_tbName.TabIndex = 22;
+            this.location_tbName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.location_tbName_KeyDown);
             // 
             // location_btnEdit
             // 
@@ -917,6 +931,7 @@
             this.location_dgView.Size = new System.Drawing.Size(811, 551);
             this.location_dgView.TabIndex = 21;
             this.location_dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.location_dgView_CellClick);
+            this.location_dgView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.location_dgView_KeyDown);
             // 
             // location_btnAdd
             // 

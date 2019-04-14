@@ -102,7 +102,7 @@ namespace Tiba_Sport_Stock
             try
             {
                 connection.Open();
-                insert("mark", mark_tbName);
+                insert("sub_gp", mark_tbName);
                 connection.Close();
                 clear();
                 loadMark();
@@ -282,7 +282,7 @@ namespace Tiba_Sport_Stock
             {
 
                 connection.Open();
-                delete("mark", major_dgView);
+                delete("mark", mark_dgView);
                 set_autoincrement("id", "mark");
                 connection.Close();
                 clear();
@@ -302,7 +302,7 @@ namespace Tiba_Sport_Stock
             {
 
                 connection.Open();
-                delete("type", major_dgView);
+                delete("type", type_dgView);
                 set_autoincrement("id", "type");
                 connection.Close();
                 clear();
@@ -321,7 +321,7 @@ namespace Tiba_Sport_Stock
             {
 
                 connection.Open();
-                delete("size", major_dgView);
+                delete("size", size_dgView);
                 set_autoincrement("id", "size");
                 connection.Close();
                 clear();
@@ -340,7 +340,7 @@ namespace Tiba_Sport_Stock
             {
 
                 connection.Open();
-                delete("color", major_dgView);
+                delete("color", color_dgView);
                 set_autoincrement("id", "color");
                 connection.Close();
                 clear();
@@ -358,7 +358,7 @@ namespace Tiba_Sport_Stock
             try
             {
                 connection.Open();
-                delete("trans_type", major_dgView);
+                delete("trans_type", trans_dgView);
                 set_autoincrement("id", "trans_type");
                 connection.Close();
                 clear();
@@ -379,7 +379,7 @@ namespace Tiba_Sport_Stock
             {
 
                 connection.Open();
-                delete("store", major_dgView);
+                delete("store", store_dgView);
                 set_autoincrement("id", "store");
                 connection.Close();
                 clear();
@@ -398,7 +398,7 @@ namespace Tiba_Sport_Stock
             {
 
                 connection.Open();
-                delete("unit", major_dgView);
+                delete("unit", unit_dgView);
                 set_autoincrement("id", "unit");
                 connection.Close();
                 clear();
@@ -417,7 +417,7 @@ namespace Tiba_Sport_Stock
             {
 
                 connection.Open();
-                delete("location", major_dgView);
+                delete("location", location_dgView);
                 set_autoincrement("id", "location");
                 connection.Close();
                 clear();
@@ -781,7 +781,7 @@ namespace Tiba_Sport_Stock
         {
             if (e.KeyData == Keys.Enter)
             {
-                major_btnAdd.PerformClick();
+                mark_btnAdd.PerformClick();
             }
         }
 
@@ -789,7 +789,7 @@ namespace Tiba_Sport_Stock
         {
             if (e.KeyData == Keys.Enter)
             {
-                major_btnAdd.PerformClick();
+                type_btnAdd.PerformClick();
             }
         }
 
@@ -797,7 +797,7 @@ namespace Tiba_Sport_Stock
         {
             if (e.KeyData == Keys.Enter)
             {
-                major_btnAdd.PerformClick();
+                size_btnAdd.PerformClick();
             }
         }
 
@@ -805,7 +805,7 @@ namespace Tiba_Sport_Stock
         {
             if (e.KeyData == Keys.Enter)
             {
-                major_btnAdd.PerformClick();
+                color_btnAdd.PerformClick();
             }
         }
 
@@ -813,7 +813,7 @@ namespace Tiba_Sport_Stock
         {
             if (e.KeyData == Keys.Enter)
             {
-                major_btnAdd.PerformClick();
+                trans_btnAdd.PerformClick();
             }
         }
 
@@ -821,7 +821,7 @@ namespace Tiba_Sport_Stock
         {
             if (e.KeyData == Keys.Enter)
             {
-                major_btnAdd.PerformClick();
+                store_btnAdd.PerformClick();
             }
         }
 
@@ -829,7 +829,7 @@ namespace Tiba_Sport_Stock
         {
             if (e.KeyData == Keys.Enter)
             {
-                major_btnAdd.PerformClick();
+                unit_btnAdd.PerformClick();
             }
         }
 
@@ -837,7 +837,7 @@ namespace Tiba_Sport_Stock
         {
             if (e.KeyData == Keys.Enter)
             {
-                major_btnAdd.PerformClick();
+                location_btnAdd.PerformClick();
             }
         }
 
@@ -960,14 +960,14 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "select id as م , name as الاسم from mark;";
+                string query = "select id as م , name as الاسم from sub_gp;";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
 
                 connection.Open();
 
                 DataSet ds = new DataSet();
-                adapter.Fill(ds, "mark");
-                mark_dgView.DataSource = ds.Tables["mark"];
+                adapter.Fill(ds, "sub_gp");
+                mark_dgView.DataSource = ds.Tables["sub_gp"];
 
                 connection.Close();
             }
@@ -1209,10 +1209,14 @@ namespace Tiba_Sport_Stock
 
         private void insert(string table_name, TextBox tb)
         {
-            string query = string.Format("INSERT INTO {0} ( name ) VALUES ( ? );", table_name);
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("param1", tb.Text);
-            cmd.ExecuteNonQuery();
+            string[] type = { "محلي", "مستورد", "توكيل" };
+            for(int i = 0; i <3; i++) {
+                string query = string.Format("INSERT INTO {0} ( name ) VALUES ( ? );", table_name);
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("param1", tb.Text +" "+ type[i]);
+                cmd.ExecuteNonQuery();
+            }
+            
         }
 
 
