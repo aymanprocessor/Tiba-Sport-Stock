@@ -47,11 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Add_Permission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Permission.Designer.cs">
+      <DependentUpon>Add_Permission.cs</DependentUpon>
+    </Compile>
     <Compile Include="aid_items.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="aid_items.Designer.cs">
       <DependentUpon>aid_items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Exchange_Permission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Exchange_Permission.Designer.cs">
+      <DependentUpon>Exchange_Permission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Supplier.Designer.cs">
+      <DependentUpon>Supplier.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
     <Compile Include="Form1.cs">
@@ -80,6 +98,9 @@
     <Compile Include="Stock_balance.Designer.cs">
       <DependentUpon>Stock_balance.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Add_Permission.resx">
+      <DependentUpon>Add_Permission.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="aid_items.resx">
       <DependentUpon>aid_items.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stock_balance.resx">
       <DependentUpon>Stock_balance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Supplier.resx">
+      <DependentUpon>Supplier.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

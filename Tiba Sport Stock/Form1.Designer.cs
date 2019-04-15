@@ -59,7 +59,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(202, 59);
             this.button2.TabIndex = 0;
-            this.button2.Text = "الصرف";
+            this.button2.Text = "اذن الصرف";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -70,7 +70,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(202, 59);
             this.button3.TabIndex = 0;
-            this.button3.Text = "البضاعة";
+            this.button3.Text = "اذن الاضافة";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -81,8 +81,9 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(202, 59);
             this.button4.TabIndex = 0;
-            this.button4.Text = "المشتريات";
+            this.button4.Text = "الرصيد";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 

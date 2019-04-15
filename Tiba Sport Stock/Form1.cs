@@ -28,5 +28,11 @@ namespace Tiba_Sport_Stock
             Items items = new Items();
             items.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Stock_balance stock = new Stock_balance();
+            stock.Show();
+        }
     }
 }
