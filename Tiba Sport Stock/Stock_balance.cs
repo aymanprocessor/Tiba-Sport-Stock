@@ -39,7 +39,7 @@ namespace Tiba_Sport_Stock
                "PASSWORD=" + pass + ";";
 
             connection = new MySqlConnection(ConnectionString);
-            utils.loadIntoCombo("code", "item_master", cbCode);
+           
             clear();
             loadBalance();
         }
@@ -48,7 +48,8 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "INSERT INTO stock_balance (`item_id`,`year`,`item_desc`,`store`,`count`,`avg_cost`)VALUES(?,?,?,?,?,?);";
+                //string query = "INSERT INTO stock_balance (`item_id`,`year`,`item_desc`,`store`,`count`,`avg_cost`)VALUES(?,?,?,?,?,?);";
+                string query = "INSERT INTO stock_balance (`item_id`,`year`,`item_desc`,`store`,`count`,`avg_cost`)VALUES(?,?,?,?,?);";
                 connection.Open();
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -57,7 +58,7 @@ namespace Tiba_Sport_Stock
                 cmd.Parameters.AddWithValue("param3", cbDesc.Text);
                 cmd.Parameters.AddWithValue("param4", cbStore.Text);
                 cmd.Parameters.AddWithValue("param5", tbCount.Text);
-                cmd.Parameters.AddWithValue("param6", tbAvgCost.Text);
+                //cmd.Parameters.AddWithValue("param6", tbAvgCost.Text);
 
                 cmd.ExecuteNonQuery();
                 connection.Close();
@@ -86,12 +87,12 @@ namespace Tiba_Sport_Stock
                 .ToArray();
                     foreach (var i in selectedRows)
                     {
-                        string query = string.Format("DELETE FROM {0} WHERE code = {1}", "stock_balance", i.Cells[0].Value);
+                        string query = string.Format("DELETE FROM {0} WHERE item_id = {1}", "stock_balance", i.Cells[0].Value);
                         MySqlCommand cmd = new MySqlCommand(query, connection);
                         cmd.ExecuteNonQuery();
                     }
                 }
-                utils.set_autoincrement("code", "stock_balance");
+               
                 connection.Close();
                 loadBalance();
                 clear();
@@ -114,7 +115,8 @@ namespace Tiba_Sport_Stock
             .ToArray();
 
 
-                string query = "UPDATE stock_balance SET `item_id` = ?,`year` = ?,`item_desc` = ?,`store` = ?,`count` = ?,`avg_cost` = ? WHERE `item_id` = ? AND `year` = ?;";
+                //string query = "UPDATE stock_balance SET `item_id` = ?,`year` = ?,`item_desc` = ?,`store` = ?,`count` = ?,`avg_cost` = ? WHERE `item_id` = ? AND `year` = ?;";
+                string query = "UPDATE stock_balance SET `item_id` = ?,`year` = ?,`item_desc` = ?,`store` = ?,`count` = ? WHERE `item_id` = ? AND `year` = ?;";
                 connection.Open();
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -123,7 +125,7 @@ namespace Tiba_Sport_Stock
                 cmd.Parameters.AddWithValue("param3", cbDesc.Text);
                 cmd.Parameters.AddWithValue("param4", cbStore.Text);
                 cmd.Parameters.AddWithValue("param5", tbCount.Text);
-                cmd.Parameters.AddWithValue("param6", tbAvgCost.Text);
+               // cmd.Parameters.AddWithValue("param6", tbAvgCost.Text);
                 cmd.Parameters.AddWithValue("param7",selectedRows[0].Cells[0].Value.ToString());
                 cmd.Parameters.AddWithValue("param8", selectedRows[0].Cells[5].Value.ToString());
                 cmd.ExecuteNonQuery();
@@ -135,6 +137,20 @@ namespace Tiba_Sport_Stock
             {
                 MessageBox.Show(ex.Message);
                 connection.Close();
+            }
+        }
+
+        private void dgView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+            
+            cbCode.Text = dgView.Rows[e.RowIndex].Cells[0].Value.ToString();
+            cbDesc.Text = dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            tbCount.Text = dgView.Rows[e.RowIndex].Cells[2].Value.ToString();
+            tbAvgCost.Text = dgView.Rows[e.RowIndex].Cells[3].Value.ToString();
+            cbStore.Text = dgView.Rows[e.RowIndex].Cells[4].Value.ToString();
+            cbYear.Text = dgView.Rows[e.RowIndex].Cells[5].Value.ToString();
             }
         }
 

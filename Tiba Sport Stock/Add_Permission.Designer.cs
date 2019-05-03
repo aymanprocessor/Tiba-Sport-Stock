@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblTransNo = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.date = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
+            this.cbName = new System.Windows.Forms.ComboBox();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbName = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.date = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             this.lblOrderNo = new System.Windows.Forms.Label();
+            this.lblTransNo = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblTotalCost = new System.Windows.Forms.Label();
             this.dgView = new System.Windows.Forms.DataGridView();
@@ -80,49 +80,13 @@
             this.panel1.Size = new System.Drawing.Size(760, 103);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // cbName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(353, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "رقم الحركة :";
-            // 
-            // lblTransNo
-            // 
-            this.lblTransNo.Location = new System.Drawing.Point(267, 28);
-            this.lblTransNo.Name = "lblTransNo";
-            this.lblTransNo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblTransNo.Size = new System.Drawing.Size(80, 19);
-            this.lblTransNo.TabIndex = 1;
-            this.lblTransNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(587, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 19);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "التاريخ :";
-            // 
-            // date
-            // 
-            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.date.Location = new System.Drawing.Point(451, 22);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(130, 26);
-            this.date.TabIndex = 2;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(587, 60);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "نوع الحركة :";
+            this.cbName.FormattingEnabled = true;
+            this.cbName.Location = new System.Drawing.Point(99, 54);
+            this.cbName.Name = "cbName";
+            this.cbName.Size = new System.Drawing.Size(248, 27);
+            this.cbName.TabIndex = 3;
             // 
             // cbType
             // 
@@ -141,13 +105,41 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "الاســـم :";
             // 
-            // cbName
+            // date
             // 
-            this.cbName.FormattingEnabled = true;
-            this.cbName.Location = new System.Drawing.Point(99, 54);
-            this.cbName.Name = "cbName";
-            this.cbName.Size = new System.Drawing.Size(248, 27);
-            this.cbName.TabIndex = 3;
+            this.date.CustomFormat = "dd/MM/yyyy";
+            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.date.Location = new System.Drawing.Point(451, 22);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(130, 26);
+            this.date.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(587, 60);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 19);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "نوع الحركة :";
+            // 
+            // lblOrderNo
+            // 
+            this.lblOrderNo.Location = new System.Drawing.Point(95, 28);
+            this.lblOrderNo.Name = "lblOrderNo";
+            this.lblOrderNo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblOrderNo.Size = new System.Drawing.Size(80, 19);
+            this.lblOrderNo.TabIndex = 1;
+            this.lblOrderNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblTransNo
+            // 
+            this.lblTransNo.Location = new System.Drawing.Point(267, 28);
+            this.lblTransNo.Name = "lblTransNo";
+            this.lblTransNo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblTransNo.Size = new System.Drawing.Size(80, 19);
+            this.lblTransNo.TabIndex = 1;
+            this.lblTransNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
             // 
@@ -158,14 +150,23 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "رقم الطلب :";
             // 
-            // lblOrderNo
+            // label3
             // 
-            this.lblOrderNo.Location = new System.Drawing.Point(95, 28);
-            this.lblOrderNo.Name = "lblOrderNo";
-            this.lblOrderNo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblOrderNo.Size = new System.Drawing.Size(80, 19);
-            this.lblOrderNo.TabIndex = 1;
-            this.lblOrderNo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(587, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 19);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "التاريخ :";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(353, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "رقم الحركة :";
             // 
             // label8
             // 
@@ -209,11 +210,14 @@
             // 
             // cbCode
             // 
+            this.cbCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCode.FormattingEnabled = true;
             this.cbCode.Location = new System.Drawing.Point(550, 28);
             this.cbCode.Name = "cbCode";
             this.cbCode.Size = new System.Drawing.Size(121, 27);
             this.cbCode.TabIndex = 3;
+            this.cbCode.SelectionChangeCommitted += new System.EventHandler(this.cbCode_SelectionChangeCommitted);
             // 
             // label11
             // 
@@ -231,6 +235,7 @@
             this.cbDesc.Name = "cbDesc";
             this.cbDesc.Size = new System.Drawing.Size(280, 27);
             this.cbDesc.TabIndex = 3;
+            this.cbDesc.SelectedIndexChanged += new System.EventHandler(this.cbDesc_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -285,6 +290,7 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.tbQuantity);
@@ -305,6 +311,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnAdd.Location = new System.Drawing.Point(463, 240);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 39);
@@ -315,6 +322,7 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnDelete.Location = new System.Drawing.Point(382, 240);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 39);
@@ -325,6 +333,7 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnEdit.Location = new System.Drawing.Point(301, 240);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 39);

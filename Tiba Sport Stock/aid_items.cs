@@ -122,7 +122,7 @@ namespace Tiba_Sport_Stock
             {
 
                 connection.Open();
-                insert("type", type_tbName);
+                insert4type("type", type_tbName);
                 connection.Close();
                 clear();
                 loadType();
@@ -179,7 +179,7 @@ namespace Tiba_Sport_Stock
             {
 
                 connection.Open();
-                insert("trans_type", trans_tbName);
+                insert4trans("trans_type", trans_tbName);
                 connection.Close();
                 clear();
                 loadTrans();
@@ -599,12 +599,13 @@ namespace Tiba_Sport_Stock
             .ToArray();
 
 
-                string query = "UPDATE trans_type SET name = ? WHERE id = ?;";
+                string query = "UPDATE trans_type SET name = ?, type = ? WHERE id = ?;";
                 connection.Open();
 
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("param1", trans_tbName.Text);
-                cmd.Parameters.AddWithValue("param2", selectedRows[0].Cells[0].Value);
+                cmd.Parameters.AddWithValue("param2", trans_cbType.Text);
+                cmd.Parameters.AddWithValue("param3", selectedRows[0].Cells[0].Value);
 
 
                 cmd.ExecuteNonQuery();
@@ -718,49 +719,76 @@ namespace Tiba_Sport_Stock
         ///////////////////////////////////////////////////
         private void major_dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            major_tbName.Text = major_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                major_tbName.Text = major_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
         }
 
 
         private void mark_dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            mark_tbName.Text = mark_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                mark_tbName.Text = mark_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
         }
 
 
         private void type_dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            type_tbName.Text = type_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                type_tbName.Text = type_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
         }
 
         private void size_dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            size_tbName.Text = size_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                size_tbName.Text = size_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
         }
 
         private void color_dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            color_tbName.Text = color_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                color_tbName.Text = color_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
         }
 
         private void trans_dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            trans_tbName.Text = trans_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                trans_tbName.Text = trans_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
         }
 
         private void store_dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            store_tbName.Text = store_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                store_tbName.Text = store_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
         }
 
         private void unit_dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            unit_tbName.Text = unit_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                unit_tbName.Text = unit_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
         }
 
         private void location_dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            location_tbName.Text = location_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                location_tbName.Text = location_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+            }
         }
 
 
@@ -770,7 +798,7 @@ namespace Tiba_Sport_Stock
         ////////////////////////////////////////////////////////////////////////////////////////////////////
         private void major_tbName_KeyDown(object sender, KeyEventArgs e)
         {
-          
+
             if (e.KeyData == Keys.Enter)
             {
                 major_btnAdd.PerformClick();
@@ -1056,7 +1084,7 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "select id as م , name as الاسم from trans_type;";
+                string query = "select id as م , name as الاسم , type as النوع from trans_type;";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
 
                 connection.Open();
@@ -1123,7 +1151,7 @@ namespace Tiba_Sport_Stock
             }
         }
 
-       
+
         private void loadLocation()
         {
             try
@@ -1161,7 +1189,7 @@ namespace Tiba_Sport_Stock
             location_tbName.Text = "";
         }
 
-       
+
 
         private void set_autoincrement(string id, string table)
         {
@@ -1190,7 +1218,7 @@ namespace Tiba_Sport_Stock
 
         private void delete(string table_name, DataGridView dg)
         {
-           DialogResult d = MessageBox.Show( "هل تريد المسح", "تأكيد المسح", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult d = MessageBox.Show("هل تريد المسح", "تأكيد المسح", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (d == DialogResult.Yes)
             {
                 var selectedRows = dg.SelectedRows
@@ -1209,17 +1237,39 @@ namespace Tiba_Sport_Stock
 
         private void insert(string table_name, TextBox tb)
         {
-            string[] type = { "محلي", "مستورد", "توكيل" };
-            for(int i = 0; i <3; i++) {
-                string query = string.Format("INSERT INTO {0} ( name ) VALUES ( ? );", table_name);
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("param1", tb.Text +" "+ type[i]);
-                cmd.ExecuteNonQuery();
-            }
-            
+
+            string query = string.Format("INSERT INTO {0} ( name ) VALUES ( ? );", table_name);
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("param1", tb.Text);
+            cmd.ExecuteNonQuery();
+
+
         }
 
+        private void insert4type(string table_name, TextBox tb)
+        {
+            string[] type = { "محلي", "مستورد", "توكيل" };
+            for (int i = 0; i < 3; i++)
+            {
+                string query = string.Format("INSERT INTO {0} ( name ) VALUES ( ? );", table_name);
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("param1", tb.Text + " " + type[i]);
+                cmd.ExecuteNonQuery();
+            }
 
+        }
+
+        private void insert4trans(string table_name, TextBox tb)
+        {
+
+            string query = string.Format("INSERT INTO {0} ( name,type ) VALUES ( ?,? );", table_name);
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("param1", tb.Text);
+            cmd.Parameters.AddWithValue("param2", trans_cbType.Text);
+            cmd.ExecuteNonQuery();
+
+
+        }
 
 
     }

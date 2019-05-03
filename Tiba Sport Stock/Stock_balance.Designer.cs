@@ -156,6 +156,8 @@
             // 
             // dgView
             // 
+            this.dgView.AllowUserToAddRows = false;
+            this.dgView.AllowUserToDeleteRows = false;
             this.dgView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -163,9 +165,11 @@
             this.dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgView.Location = new System.Drawing.Point(12, 207);
             this.dgView.Name = "dgView";
+            this.dgView.ReadOnly = true;
             this.dgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgView.Size = new System.Drawing.Size(777, 298);
             this.dgView.TabIndex = 3;
+            this.dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgView_CellClick);
             // 
             // btnAdd
             // 
@@ -176,6 +180,7 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "اضافة";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Visible = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
@@ -187,6 +192,7 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "مسح";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
@@ -237,6 +243,7 @@
             this.Name = "Stock_balance";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Text = "الرصيد";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Stock_balance_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgView)).EndInit();
             this.panel1.ResumeLayout(false);

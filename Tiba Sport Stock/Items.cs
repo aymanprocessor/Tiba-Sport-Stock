@@ -81,9 +81,8 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "INSERT INTO item_master ( major_gp,sub_gp,color,size,item_desc,store,unit,reorder,avg,location,code ) VALUES ( ?,?,?,?,?,?,?,?,?,?,? );";
                 connection.Open();
-
+                string query = "INSERT INTO item_master ( major_gp,sub_gp,color,size,item_desc,store,unit,reorder,avg,location,code ) VALUES ( ?,?,?,?,?,?,?,?,?,?,? );";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("param1", cbMajor.Text);
                 cmd.Parameters.AddWithValue("param2", cbSub.Text);
@@ -97,6 +96,15 @@ namespace Tiba_Sport_Stock
                 cmd.Parameters.AddWithValue("param10", cbLocation.Text);
                 cmd.Parameters.AddWithValue("param11", getCode());
                 cmd.ExecuteNonQuery();
+
+                string query1 = "INSERT INTO stock_balance ( item_desc,store,item_id,year,count ) VALUES ( ?,?,?,?,? );";
+                MySqlCommand cmd1 = new MySqlCommand(query1, connection);
+                cmd1.Parameters.AddWithValue("param1", lblDesc.Text);
+                cmd1.Parameters.AddWithValue("param2", cbStore.Text);
+                cmd1.Parameters.AddWithValue("param3", getCode());
+                cmd1.Parameters.AddWithValue("param4", DateTime.Now.Year.ToString());
+                cmd1.Parameters.AddWithValue("param5", 0);
+                cmd1.ExecuteNonQuery();
                 connection.Close();
                 clear();
                 loadItems();
@@ -110,7 +118,96 @@ namespace Tiba_Sport_Stock
         }
 
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                connection.Open();
+                DialogResult d = MessageBox.Show("هل تريد المسح", "تأكيد المسح", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (d == DialogResult.Yes)
+                {
+                    var selectedRows = dgView.SelectedRows
+                .OfType<DataGridViewRow>()
+                .Where(r => !r.IsNewRow)
+                .ToArray();
+                    foreach (var i in selectedRows)
+                    {
+                        string query = string.Format("DELETE FROM {0} WHERE serial = {1}", "item_master", i.Cells[0].Value);
+                        MySqlCommand cmd = new MySqlCommand(query, connection);
+                        cmd.ExecuteNonQuery();
 
+                        string query1 = string.Format("DELETE FROM {0} WHERE item_id = {1}", "stock_balance", i.Cells[1].Value);
+                        MySqlCommand cmd1 = new MySqlCommand(query1, connection);
+                        cmd1.ExecuteNonQuery();
+                    }
+                }
+                set_autoincrement("serial", "item_master");
+                connection.Close();
+                loadItems();
+                clear();
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                connection.Close();
+            }
+        }
+
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedRows = dgView.SelectedRows
+            .OfType<DataGridViewRow>()
+            .Where(r => !r.IsNewRow)
+            .ToArray();
+
+
+                connection.Open();
+                string query = "UPDATE item_master SET `code` = ?, `major_gp` = ?, `sub_gp` = ?, `color` = ?, `size` = ?, `item_desc` = ?, `store` = ?, `unit` = ?, `reorder` = ?, `avg` = ?, `location` = ? WHERE serial = ?;";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("param1", lblCode.Text);
+                cmd.Parameters.AddWithValue("param2", cbMajor.Text);
+                cmd.Parameters.AddWithValue("param3", cbSub.Text);
+                cmd.Parameters.AddWithValue("param4", cbColor.Text);
+                cmd.Parameters.AddWithValue("param5", cbSize.Text);
+                cmd.Parameters.AddWithValue("param6", lblDesc.Text);
+                cmd.Parameters.AddWithValue("param7", cbStore.Text);
+                cmd.Parameters.AddWithValue("param8", cbUnit.Text);
+                cmd.Parameters.AddWithValue("param9", tbReorder.Text);
+                cmd.Parameters.AddWithValue("param10", lblAvg.Text);
+                cmd.Parameters.AddWithValue("param11", cbLocation.Text);
+                cmd.Parameters.AddWithValue("param12", selectedRows[0].Cells[0].Value.ToString());
+
+
+
+                cmd.ExecuteNonQuery();
+
+
+                string query1 = "UPDATE stock_balance SET `item_id` = ?, `item_desc` = ?, `store` = ? WHERE item_id = ?;";
+                MySqlCommand cmd1 = new MySqlCommand(query1, connection);
+                cmd1.Parameters.AddWithValue("param1", lblCode.Text);
+                cmd1.Parameters.AddWithValue("param2", lblDesc.Text);
+                cmd1.Parameters.AddWithValue("param3", cbStore.Text);
+                cmd1.Parameters.AddWithValue("param4", selectedRows[0].Cells[1].Value.ToString());
+                   
+
+
+                cmd1.ExecuteNonQuery();
+                connection.Close();
+                loadItems();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                connection.Close();
+            }
+        }
+
+       
         private void loadItems()
         {
             try
@@ -139,6 +236,8 @@ namespace Tiba_Sport_Stock
 
         private void dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
             lblCode.Text = dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
             lblDesc.Text = dgView.Rows[e.RowIndex].Cells[2].Value.ToString();
             cbMajor.Text = dgView.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -150,81 +249,10 @@ namespace Tiba_Sport_Stock
             cbStore.Text = dgView.Rows[e.RowIndex].Cells[9].Value.ToString();
             cbLocation.Text = dgView.Rows[e.RowIndex].Cells[10].Value.ToString();
             cbUnit.Text = dgView.Rows[e.RowIndex].Cells[11].Value.ToString();
-        }
-
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var selectedRows = dgView.SelectedRows
-            .OfType<DataGridViewRow>()
-            .Where(r => !r.IsNewRow)
-            .ToArray();
-
-
-                string query = "UPDATE item_master SET `code` = ?, `major_gp` = ?, `sub_gp` = ?, `color` = ?, `size` = ?, `item_desc` = ?, `store` = ?, `unit` = ?, `reorder` = ?, `avg` = ?, `location` = ? WHERE serial = ?;";
-                connection.Open();
-
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("param1", lblCode.Text);
-                cmd.Parameters.AddWithValue("param2", cbMajor.Text);
-                cmd.Parameters.AddWithValue("param3", cbSub.Text);
-                cmd.Parameters.AddWithValue("param4", cbColor.Text);
-                cmd.Parameters.AddWithValue("param5", cbSize.Text);
-                cmd.Parameters.AddWithValue("param6", lblDesc.Text);
-                cmd.Parameters.AddWithValue("param7", cbStore.Text);
-                cmd.Parameters.AddWithValue("param8", cbUnit.Text);
-                cmd.Parameters.AddWithValue("param9", tbReorder.Text);
-                cmd.Parameters.AddWithValue("param10", lblAvg.Text);
-                cmd.Parameters.AddWithValue("param11", cbLocation.Text);
-                cmd.Parameters.AddWithValue("param12", selectedRows[0].Cells[0].Value.ToString());
-
-
-
-                cmd.ExecuteNonQuery();
-                connection.Close();
-                loadItems();
-
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show(ex.Message);
-                connection.Close();
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                connection.Open();
-                DialogResult d = MessageBox.Show("هل تريد المسح", "تأكيد المسح", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (d == DialogResult.Yes)
-                {
-                    var selectedRows = dgView.SelectedRows
-                .OfType<DataGridViewRow>()
-                .Where(r => !r.IsNewRow)
-                .ToArray();
-                    foreach (var i in selectedRows)
-                    {
-                        string query = string.Format("DELETE FROM {0} WHERE serial = {1}", "item_master", i.Cells[0].Value);
-                        MySqlCommand cmd = new MySqlCommand(query, connection);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                set_autoincrement("serial", "item_master");
-                connection.Close();
-                loadItems();
-                clear();
-            }
-            catch (MySqlException ex)
-            {
-
-                MessageBox.Show(ex.Message);
-                connection.Close();
-            }
-        }
-
+       
         private void loadIntoCombo()
         {
             string query_major = "SELECT name FROM major_gp;";

@@ -65,6 +65,8 @@
             this.color_btnAdd = new System.Windows.Forms.Button();
             this.color_btnDelete = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.trans_cbType = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.trans_tbName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.trans_btnEdit = new System.Windows.Forms.Button();
@@ -192,6 +194,7 @@
             this.major_dgView.AllowUserToDeleteRows = false;
             this.major_dgView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.major_dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.major_dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.major_dgView.Location = new System.Drawing.Point(2, 102);
             this.major_dgView.Margin = new System.Windows.Forms.Padding(10);
@@ -283,6 +286,7 @@
             this.mark_dgView.AllowUserToDeleteRows = false;
             this.mark_dgView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.mark_dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.mark_dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mark_dgView.Location = new System.Drawing.Point(2, 102);
             this.mark_dgView.Margin = new System.Windows.Forms.Padding(10);
@@ -374,6 +378,7 @@
             this.type_dgView.AllowUserToDeleteRows = false;
             this.type_dgView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.type_dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.type_dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.type_dgView.Location = new System.Drawing.Point(2, 102);
             this.type_dgView.Margin = new System.Windows.Forms.Padding(10);
@@ -465,6 +470,7 @@
             this.size_dgView.AllowUserToDeleteRows = false;
             this.size_dgView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.size_dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.size_dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.size_dgView.Location = new System.Drawing.Point(2, 102);
             this.size_dgView.Margin = new System.Windows.Forms.Padding(10);
@@ -556,6 +562,7 @@
             this.color_dgView.AllowUserToDeleteRows = false;
             this.color_dgView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.color_dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.color_dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.color_dgView.Location = new System.Drawing.Point(2, 102);
             this.color_dgView.Margin = new System.Windows.Forms.Padding(10);
@@ -594,6 +601,8 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage5.Controls.Add(this.trans_cbType);
+            this.tabPage5.Controls.Add(this.label10);
             this.tabPage5.Controls.Add(this.trans_tbName);
             this.tabPage5.Controls.Add(this.label6);
             this.tabPage5.Controls.Add(this.trans_btnEdit);
@@ -606,6 +615,29 @@
             this.tabPage5.Size = new System.Drawing.Size(814, 657);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "انواع الحركة";
+            // 
+            // trans_cbType
+            // 
+            this.trans_cbType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.trans_cbType.FormattingEnabled = true;
+            this.trans_cbType.Items.AddRange(new object[] {
+            "in",
+            "out"});
+            this.trans_cbType.Location = new System.Drawing.Point(287, 60);
+            this.trans_cbType.Name = "trans_cbType";
+            this.trans_cbType.Size = new System.Drawing.Size(121, 27);
+            this.trans_cbType.TabIndex = 14;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(416, 63);
+            this.label10.Margin = new System.Windows.Forms.Padding(5, 10, 10, 10);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 19);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "النوع:";
             // 
             // trans_tbName
             // 
@@ -648,6 +680,7 @@
             this.trans_dgView.AllowUserToDeleteRows = false;
             this.trans_dgView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.trans_dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.trans_dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.trans_dgView.Location = new System.Drawing.Point(2, 102);
             this.trans_dgView.Margin = new System.Windows.Forms.Padding(10);
@@ -740,6 +773,7 @@
             this.store_dgView.AllowUserToDeleteRows = false;
             this.store_dgView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.store_dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.store_dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.store_dgView.Location = new System.Drawing.Point(2, 105);
             this.store_dgView.Margin = new System.Windows.Forms.Padding(10);
@@ -831,6 +865,7 @@
             this.unit_dgView.AllowUserToDeleteRows = false;
             this.unit_dgView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.unit_dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.unit_dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.unit_dgView.Location = new System.Drawing.Point(2, 105);
             this.unit_dgView.Margin = new System.Windows.Forms.Padding(10);
@@ -922,6 +957,7 @@
             this.location_dgView.AllowUserToDeleteRows = false;
             this.location_dgView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.location_dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.location_dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.location_dgView.Location = new System.Drawing.Point(2, 104);
             this.location_dgView.Margin = new System.Windows.Forms.Padding(10);
@@ -969,6 +1005,7 @@
             this.Name = "aid_items";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "الجداول المساعدة";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.aid_items_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1067,5 +1104,7 @@
         private System.Windows.Forms.DataGridView location_dgView;
         private System.Windows.Forms.Button location_btnAdd;
         private System.Windows.Forms.Button location_btnDelete;
+        private System.Windows.Forms.ComboBox trans_cbType;
+        private System.Windows.Forms.Label label10;
     }
 }

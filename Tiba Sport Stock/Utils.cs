@@ -12,7 +12,8 @@ namespace Tiba_Sport_Stock
     {
         private MySqlConnection connection;
         private string server, database, user, pass;
-        public void DB_Connection_Init()
+
+        public  Utils()
         {
             server = Properties.Settings.Default.server;
             database = Properties.Settings.Default.database;
@@ -33,7 +34,7 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                DB_Connection_Init();
+                
                 connection.Open();
                 string query = string.Format("SELECT {0} FROM {1};",col,table);
                 MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -57,12 +58,12 @@ namespace Tiba_Sport_Stock
         public void loadIntoCombo(string col, string table, ComboBox cb,string where_clause,string value)
         {
             connection.Open();
-            string query = string.Format("SELECT * FROM {0} where {1} = {2};", table,where_clause,value);
+            string query = string.Format(@"SELECT * FROM {0} where {1} = ""{2}"";", table,where_clause,value);
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                cb.Text = reader.GetString(col);
+                cb.Items.Add (reader.GetString(col));
             }
             connection.Close();
         }
@@ -70,6 +71,7 @@ namespace Tiba_Sport_Stock
         public void set_autoincrement(string id, string table)
         {
 
+            connection.Open();
             string max_query = string.Format("select max({0}) from {1} ;", id, table);
             MySqlCommand cmd2 = new MySqlCommand(max_query, connection);
 
@@ -90,6 +92,8 @@ namespace Tiba_Sport_Stock
 
                 cmd1.ExecuteNonQuery();
             }
+
+            connection.Close();
         }
 
 
