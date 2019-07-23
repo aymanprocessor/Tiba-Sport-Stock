@@ -96,6 +96,30 @@ namespace Tiba_Sport_Stock
             connection.Close();
         }
 
+        public string loadFromDatabase(string col,string table)
+        {
+            connection.Open();
+            string result = "";
+            string query = string.Format(@"SELECT {0} FROM {1} ;", col,table);
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                result = reader[col].ToString();
+            }
+            connection.Close();
+
+            if(result == "")
+            {
+                return result = "1";
+            }
+            else
+            {
+
+            return result;
+            }
+
+        }
 
     }
 }

@@ -180,7 +180,6 @@
             this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "اضافة";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Visible = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
@@ -192,7 +191,6 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "مسح";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit

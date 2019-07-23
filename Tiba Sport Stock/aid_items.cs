@@ -40,7 +40,7 @@ namespace Tiba_Sport_Stock
             connection = new MySqlConnection(ConnectionString);
             loadMajor();
             loadMark();
-            loadType();
+            loadSub();
             loadSize();
             loadColor();
             loadTrans();
@@ -102,10 +102,12 @@ namespace Tiba_Sport_Stock
             try
             {
                 connection.Open();
-                insert("sub_gp", mark_tbName);
+                insert("mark", mark_tbName);
+                insert4sub_gp("sub_gp", mark_tbName);
                 connection.Close();
                 clear();
                 loadMark();
+                loadSub();
             }
             catch (MySqlException ex)
             {
@@ -122,10 +124,10 @@ namespace Tiba_Sport_Stock
             {
 
                 connection.Open();
-                insert4type("type", type_tbName);
+                insert("type", type_tbName);
                 connection.Close();
                 clear();
-                loadType();
+                loadSub();
             }
             catch (MySqlException ex)
             {
@@ -302,11 +304,11 @@ namespace Tiba_Sport_Stock
             {
 
                 connection.Open();
-                delete("type", type_dgView);
-                set_autoincrement("id", "type");
+                delete("sub_gp", sub_dgView);
+                set_autoincrement("id", "sub_gp");
                 connection.Close();
                 clear();
-                loadType();
+                loadSub();
             }
             catch (MySqlException ex)
             {
@@ -503,7 +505,7 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                var selectedRows = type_dgView.SelectedRows
+                var selectedRows = sub_dgView.SelectedRows
             .OfType<DataGridViewRow>()
             .Where(r => !r.IsNewRow)
             .ToArray();
@@ -520,7 +522,7 @@ namespace Tiba_Sport_Stock
                 cmd.ExecuteNonQuery();
                 connection.Close();
                 clear();
-                loadType();
+                loadSub();
             }
             catch (MySqlException ex)
             {
@@ -735,11 +737,11 @@ namespace Tiba_Sport_Stock
         }
 
 
-        private void type_dgView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void sub_dgView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                type_tbName.Text = type_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                type_tbName.Text = sub_dgView.Rows[e.RowIndex].Cells[1].Value.ToString();
             }
         }
 
@@ -988,14 +990,14 @@ namespace Tiba_Sport_Stock
         {
             try
             {
-                string query = "select id as م , name as الاسم from sub_gp;";
+                string query = "select id as م , name as الاسم from mark;";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
 
                 connection.Open();
 
                 DataSet ds = new DataSet();
-                adapter.Fill(ds, "sub_gp");
-                mark_dgView.DataSource = ds.Tables["sub_gp"];
+                adapter.Fill(ds, "mark");
+                mark_dgView.DataSource = ds.Tables["mark"];
 
                 connection.Close();
             }
@@ -1007,18 +1009,18 @@ namespace Tiba_Sport_Stock
             }
         }
 
-        private void loadType()
+        private void loadSub()
         {
             try
             {
-                string query = "select id as م , name as الاسم from type;";
+                string query = "select id as م , name as الاسم from sub_gp;";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
 
                 connection.Open();
 
                 DataSet ds = new DataSet();
-                adapter.Fill(ds, "type");
-                type_dgView.DataSource = ds.Tables["type"];
+                adapter.Fill(ds, "sub_gp");
+                sub_dgView.DataSource = ds.Tables["sub_gp"];
 
                 connection.Close();
             }
@@ -1235,6 +1237,11 @@ namespace Tiba_Sport_Stock
 
         }
 
+        private void create_sub_gp_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void insert(string table_name, TextBox tb)
         {
 
@@ -1246,7 +1253,7 @@ namespace Tiba_Sport_Stock
 
         }
 
-        private void insert4type(string table_name, TextBox tb)
+        private void insert4sub_gp(string table_name, TextBox tb)
         {
             string[] type = { "محلي", "مستورد", "توكيل" };
             for (int i = 0; i < 3; i++)

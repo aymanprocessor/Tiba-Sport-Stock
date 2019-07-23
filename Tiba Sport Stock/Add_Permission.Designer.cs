@@ -235,7 +235,7 @@
             this.cbDesc.Name = "cbDesc";
             this.cbDesc.Size = new System.Drawing.Size(280, 27);
             this.cbDesc.TabIndex = 3;
-            this.cbDesc.SelectedIndexChanged += new System.EventHandler(this.cbDesc_SelectedIndexChanged);
+            this.cbDesc.SelectionChangeCommitted += new System.EventHandler(this.cbDesc_SelectionChangeCommitted);
             // 
             // label12
             // 

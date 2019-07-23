@@ -98,6 +98,7 @@
             this.button5.TabIndex = 0;
             this.button5.Text = "الاعدادات";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -123,11 +124,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Droid Arabic Kufi", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Location = new System.Drawing.Point(179, 9);
+            this.label1.Location = new System.Drawing.Point(249, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(441, 121);
+            this.label1.Size = new System.Drawing.Size(300, 75);
             this.label1.TabIndex = 2;
             this.label1.Text = "طيبة سبورت";
             // 

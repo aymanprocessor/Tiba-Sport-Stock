@@ -132,7 +132,7 @@ namespace Tiba_Sport_Stock
                 .ToArray();
                     foreach (var i in selectedRows)
                     {
-                        string query = string.Format("DELETE FROM {0} WHERE serial = {1}", "item_master", i.Cells[0].Value);
+                        string query = string.Format("DELETE FROM {0} WHERE id = {1}", "item_master", i.Cells[0].Value);
                         MySqlCommand cmd = new MySqlCommand(query, connection);
                         cmd.ExecuteNonQuery();
 
@@ -141,7 +141,7 @@ namespace Tiba_Sport_Stock
                         cmd1.ExecuteNonQuery();
                     }
                 }
-                set_autoincrement("serial", "item_master");
+                set_autoincrement("id", "item_master");
                 connection.Close();
                 loadItems();
                 clear();
@@ -166,7 +166,7 @@ namespace Tiba_Sport_Stock
 
 
                 connection.Open();
-                string query = "UPDATE item_master SET `code` = ?, `major_gp` = ?, `sub_gp` = ?, `color` = ?, `size` = ?, `item_desc` = ?, `store` = ?, `unit` = ?, `reorder` = ?, `avg` = ?, `location` = ? WHERE serial = ?;";
+                string query = "UPDATE item_master SET `code` = ?, `major_gp` = ?, `sub_gp` = ?, `color` = ?, `size` = ?, `item_desc` = ?, `store` = ?, `unit` = ?, `reorder` = ?, `avg` = ?, `location` = ? WHERE id = ?;";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("param1", lblCode.Text);
                 cmd.Parameters.AddWithValue("param2", cbMajor.Text);
@@ -213,7 +213,7 @@ namespace Tiba_Sport_Stock
             try
             {
                 connection.Open();
-                string query = "select serial as م , code as الكود ,item_desc as 'اسم الصنف',major_gp as 'المجموعة الرئيسية',sub_gp as 'المجموعة الفرعية',color as اللون,size as المقاس,avg as المتوسط,reorder as 'حد الطلب',store as المخزن,location as الرف,unit as الوحدة from item_master;";
+                string query = "select id as م , code as الكود ,item_desc as 'اسم الصنف',major_gp as 'المجموعة الرئيسية',sub_gp as 'المجموعة الفرعية',color as اللون,size as المقاس,avg as المتوسط,reorder as 'حد الطلب',store as المخزن,location as الرف,unit as الوحدة from item_master;";
                 //string query = "select * from item_master;";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
 
@@ -256,8 +256,8 @@ namespace Tiba_Sport_Stock
         private void loadIntoCombo()
         {
             string query_major = "SELECT name FROM major_gp;";
-            string query_sub = "SELECT name FROM sub_gp;";
-            //string query_type = "SELECT name FROM type;";
+            string query_sub = "SELECT name FROM mark;";
+            string query_type = "SELECT name FROM type;";
             string query_size = "SELECT name FROM size;";
             string query_color = "SELECT name FROM color;";
             string query_trans = "SELECT name FROM trans;";
@@ -268,7 +268,7 @@ namespace Tiba_Sport_Stock
             connection.Open();
             MySqlCommand cmd1 = new MySqlCommand(query_major, connection);
             MySqlCommand cmd2 = new MySqlCommand(query_sub, connection);
-            //MySqlCommand cmd3 = new MySqlCommand(query_type, connection);
+            MySqlCommand cmd3 = new MySqlCommand(query_type, connection);
             MySqlCommand cmd4 = new MySqlCommand(query_size, connection);
             MySqlCommand cmd5 = new MySqlCommand(query_color, connection);
             MySqlCommand cmd6 = new MySqlCommand(query_trans, connection);
@@ -291,8 +291,8 @@ namespace Tiba_Sport_Stock
             List<string> mark = new List<string>();
             while (reader.Read())
             {
-
-                cbSub.Items.Add(reader.GetString("name"));
+                mark.Add(reader.GetString("name"));
+                //cbSub.Items.Add(reader.GetString("name"));
 
             }
             reader.Dispose();
@@ -300,22 +300,22 @@ namespace Tiba_Sport_Stock
 
 
 
-            //reader = cmd3.ExecuteReader();
-            //List<string> type = new List<string>();
-            //while (reader.Read())
-            //{
-            //    type.Add(reader.GetString("name"));
-            //}
-            //reader.Dispose();
+            reader = cmd3.ExecuteReader();
+            List<string> type = new List<string>();
+            while (reader.Read())
+            {
+                type.Add(reader.GetString("name"));
+            }
+            reader.Dispose();
 
 
-            //for (int i = 0; i < mark.Count; i++)
-            //{
-            //    for (int q = 0; q < type.Count; q++)
-            //    {
-            //        cbSub.Items.Add(mark[i] + " " + type[q]);
-            //    }
-            //}
+            for (int i = 0; i < mark.Count; i++)
+            {
+                for (int q = 0; q < type.Count; q++)
+                {
+                    cbSub.Items.Add(mark[i] + " " + type[q]);
+                }
+            }
 
 
             reader = cmd4.ExecuteReader();

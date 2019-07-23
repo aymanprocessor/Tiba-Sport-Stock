@@ -47,7 +47,7 @@
             this.type_tbName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.type_btnEdit = new System.Windows.Forms.Button();
-            this.type_dgView = new System.Windows.Forms.DataGridView();
+            this.sub_dgView = new System.Windows.Forms.DataGridView();
             this.type_btnAdd = new System.Windows.Forms.Button();
             this.type_btnDelete = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -94,13 +94,14 @@
             this.location_dgView = new System.Windows.Forms.DataGridView();
             this.location_btnAdd = new System.Windows.Forms.Button();
             this.location_btnDelete = new System.Windows.Forms.Button();
+            this.create_sub_gp = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.major_dgView)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mark_dgView)).BeginInit();
             this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.type_dgView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sub_dgView)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.size_dgView)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -233,6 +234,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage2.Controls.Add(this.create_sub_gp);
             this.tabPage2.Controls.Add(this.mark_tbName);
             this.tabPage2.Controls.Add(this.label2);
             this.tabPage2.Controls.Add(this.mark_btnEdit);
@@ -328,7 +330,7 @@
             this.tabPage6.Controls.Add(this.type_tbName);
             this.tabPage6.Controls.Add(this.label3);
             this.tabPage6.Controls.Add(this.type_btnEdit);
-            this.tabPage6.Controls.Add(this.type_dgView);
+            this.tabPage6.Controls.Add(this.sub_dgView);
             this.tabPage6.Controls.Add(this.type_btnAdd);
             this.tabPage6.Controls.Add(this.type_btnDelete);
             this.tabPage6.Location = new System.Drawing.Point(4, 28);
@@ -336,11 +338,12 @@
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(814, 657);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "النوع";
+            this.tabPage6.Text = "مجموعة الفرعية";
             // 
             // type_tbName
             // 
             this.type_tbName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.type_tbName.Enabled = false;
             this.type_tbName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.type_tbName.Location = new System.Drawing.Point(472, 62);
             this.type_tbName.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
@@ -353,6 +356,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
+            this.label3.Enabled = false;
             this.label3.Location = new System.Drawing.Point(732, 65);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 10, 10, 10);
             this.label3.Name = "label3";
@@ -363,6 +367,7 @@
             // type_btnEdit
             // 
             this.type_btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.type_btnEdit.Enabled = false;
             this.type_btnEdit.Location = new System.Drawing.Point(413, 5);
             this.type_btnEdit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.type_btnEdit.Name = "type_btnEdit";
@@ -372,27 +377,28 @@
             this.type_btnEdit.UseVisualStyleBackColor = true;
             this.type_btnEdit.Click += new System.EventHandler(this.type_btnEdit_Click);
             // 
-            // type_dgView
+            // sub_dgView
             // 
-            this.type_dgView.AllowUserToAddRows = false;
-            this.type_dgView.AllowUserToDeleteRows = false;
-            this.type_dgView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.sub_dgView.AllowUserToAddRows = false;
+            this.sub_dgView.AllowUserToDeleteRows = false;
+            this.sub_dgView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.type_dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.type_dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.type_dgView.Location = new System.Drawing.Point(2, 102);
-            this.type_dgView.Margin = new System.Windows.Forms.Padding(10);
-            this.type_dgView.Name = "type_dgView";
-            this.type_dgView.ReadOnly = true;
-            this.type_dgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.type_dgView.Size = new System.Drawing.Size(811, 578);
-            this.type_dgView.TabIndex = 9;
-            this.type_dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.type_dgView_CellClick);
-            this.type_dgView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.type_dgView_KeyDown);
+            this.sub_dgView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.sub_dgView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sub_dgView.Location = new System.Drawing.Point(2, 102);
+            this.sub_dgView.Margin = new System.Windows.Forms.Padding(10);
+            this.sub_dgView.Name = "sub_dgView";
+            this.sub_dgView.ReadOnly = true;
+            this.sub_dgView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.sub_dgView.Size = new System.Drawing.Size(811, 578);
+            this.sub_dgView.TabIndex = 9;
+            this.sub_dgView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sub_dgView_CellClick);
+            this.sub_dgView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.type_dgView_KeyDown);
             // 
             // type_btnAdd
             // 
             this.type_btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.type_btnAdd.Enabled = false;
             this.type_btnAdd.Location = new System.Drawing.Point(683, 5);
             this.type_btnAdd.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.type_btnAdd.Name = "type_btnAdd";
@@ -993,6 +999,16 @@
             this.location_btnDelete.UseVisualStyleBackColor = true;
             this.location_btnDelete.Click += new System.EventHandler(this.location_btnDelete_Click);
             // 
+            // create_sub_gp
+            // 
+            this.create_sub_gp.Location = new System.Drawing.Point(237, 5);
+            this.create_sub_gp.Name = "create_sub_gp";
+            this.create_sub_gp.Size = new System.Drawing.Size(168, 46);
+            this.create_sub_gp.TabIndex = 12;
+            this.create_sub_gp.Text = "انشاء المجموعة الفرعية";
+            this.create_sub_gp.UseVisualStyleBackColor = true;
+            this.create_sub_gp.Click += new System.EventHandler(this.create_sub_gp_Click);
+            // 
             // aid_items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 19F);
@@ -1016,7 +1032,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mark_dgView)).EndInit();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.type_dgView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sub_dgView)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.size_dgView)).EndInit();
@@ -1059,7 +1075,7 @@
         private System.Windows.Forms.TextBox type_tbName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button type_btnEdit;
-        private System.Windows.Forms.DataGridView type_dgView;
+        private System.Windows.Forms.DataGridView sub_dgView;
         private System.Windows.Forms.Button type_btnAdd;
         private System.Windows.Forms.Button type_btnDelete;
         private System.Windows.Forms.TabPage tabPage3;
@@ -1106,5 +1122,6 @@
         private System.Windows.Forms.Button location_btnDelete;
         private System.Windows.Forms.ComboBox trans_cbType;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button create_sub_gp;
     }
 }
