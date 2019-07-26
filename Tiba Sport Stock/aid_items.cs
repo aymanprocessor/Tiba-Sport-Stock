@@ -1239,7 +1239,23 @@ namespace Tiba_Sport_Stock
 
         private void create_sub_gp_Click(object sender, EventArgs e)
         {
+            connection.Open();
 
+            string query = "select name from mark";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+           
+
+            while (reader.Read())
+            {
+                string query1 = "select name from mark";
+                MySqlCommand cmd1 = new MySqlCommand(query1, connection);
+            }
+            connection.Close();
+            clear();
+            loadMark();
+            loadSub();
         }
 
         private void insert(string table_name, TextBox tb)

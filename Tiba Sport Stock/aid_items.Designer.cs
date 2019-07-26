@@ -37,6 +37,7 @@
             this.major_btnAdd = new System.Windows.Forms.Button();
             this.major_btnDelete = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.create_sub_gp = new System.Windows.Forms.Button();
             this.mark_tbName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.mark_btnEdit = new System.Windows.Forms.Button();
@@ -94,7 +95,6 @@
             this.location_dgView = new System.Windows.Forms.DataGridView();
             this.location_btnAdd = new System.Windows.Forms.Button();
             this.location_btnDelete = new System.Windows.Forms.Button();
-            this.create_sub_gp = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.major_dgView)).BeginInit();
@@ -247,6 +247,17 @@
             this.tabPage2.Size = new System.Drawing.Size(814, 657);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "الماركات";
+            // 
+            // create_sub_gp
+            // 
+            this.create_sub_gp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.create_sub_gp.Location = new System.Drawing.Point(237, 5);
+            this.create_sub_gp.Name = "create_sub_gp";
+            this.create_sub_gp.Size = new System.Drawing.Size(168, 46);
+            this.create_sub_gp.TabIndex = 12;
+            this.create_sub_gp.Text = "انشاء المجموعة الفرعية";
+            this.create_sub_gp.UseVisualStyleBackColor = true;
+            this.create_sub_gp.Click += new System.EventHandler(this.create_sub_gp_Click);
             // 
             // mark_tbName
             // 
@@ -998,16 +1009,6 @@
             this.location_btnDelete.Text = "مسح";
             this.location_btnDelete.UseVisualStyleBackColor = true;
             this.location_btnDelete.Click += new System.EventHandler(this.location_btnDelete_Click);
-            // 
-            // create_sub_gp
-            // 
-            this.create_sub_gp.Location = new System.Drawing.Point(237, 5);
-            this.create_sub_gp.Name = "create_sub_gp";
-            this.create_sub_gp.Size = new System.Drawing.Size(168, 46);
-            this.create_sub_gp.TabIndex = 12;
-            this.create_sub_gp.Text = "انشاء المجموعة الفرعية";
-            this.create_sub_gp.UseVisualStyleBackColor = true;
-            this.create_sub_gp.Click += new System.EventHandler(this.create_sub_gp_Click);
             // 
             // aid_items
             // 
